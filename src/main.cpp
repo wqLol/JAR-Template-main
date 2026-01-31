@@ -175,6 +175,7 @@ void autonomous(void) {
   auto_started = true;
   // cool_auton();
   cool_auton();
+  // auton_skills();
   // full_test();
   // turn_test();
 //   current_auton_selection = 2;

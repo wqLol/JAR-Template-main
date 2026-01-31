@@ -183,8 +183,8 @@ void holonomic_odom_test(){
 void auton_skills() {
     // (18, 1) 
   odom_constants();
-  chassis.drive_max_voltage = 8;  
-  chassis.turn_max_voltage = 4;
+  chassis.drive_max_voltage = 9;
+  chassis.turn_max_voltage = 6;
   outtakePneumatic.open();
   wingPneumatic.open();
 
@@ -200,7 +200,7 @@ void auton_skills() {
   matchloadPneumatic.open(); 
   intake.spin(forward, 11, volt); 
   wait(1, sec); 
-  chassis.drive_distance(14.00); 
+  chassis.drive_distance(15.00); 
   chassis.DriveL.spin(forward, 5, volt);
   chassis.DriveR.spin(forward, 5, volt);
     wait(50, msec);
@@ -222,9 +222,8 @@ void auton_skills() {
 
     wait(400, msec);
   }
-  wait(0.5, sec);
   intake.spin(reverse, 11, volt);
-  wait(100, msec);
+  wait(200, msec);
   intake.spin(forward, 11, volt);
   wait(0.4, sec);
 
@@ -283,7 +282,7 @@ void auton_skills() {
   }
 
 
-  wait(1, sec);
+  wait(0.2, sec);
     
   // (95, 32) 
   chassis.turn_to_angle(0.00); 
@@ -317,6 +316,7 @@ void auton_skills() {
   chassis.DriveL.spin(forward, 5, volt);
   chassis.DriveR.spin(forward, 5, volt);
 
+  outtake.spin(forward, 11, volt);
   wait(400, msec);
   for (int i = 0;i < 3;i++) {
     chassis.DriveL.spin(reverse, 5, volt);
@@ -327,14 +327,14 @@ void auton_skills() {
     intake.spin(forward, 11, volt);
 
     chassis.DriveL.spin(forward, 5, volt);
-    chassis.DriveR.spin(forward, 5
-      , volt);
+    chassis.DriveR.spin(forward, 5, volt);
 
-    wait(400, msec);
+  wait(400, msec);
   }
 
 
-  wait(1, sec);
+  wait(0.2, sec);
+    
     
   // (113, -62) 
   chassis.turn_to_angle(0.00); 
@@ -356,51 +356,72 @@ void auton_skills() {
   chassis.drive_distance(12.00); 
     
   // (31, -62) 
-  chassis.turn_to_angle(180.00); 
-  chassis.drive_distance(-8.00); 
-  intake.spin(forward, 11, volt);
-  outtake.spin(forward, 11, volt);
-  matchloadPneumatic.open(); 
-  wait(3, sec); 
-  outtake.stop();
     
   // (5, -62) 
   chassis.turn_to_angle(180.00); 
-  chassis.drive_distance(26.00);
+  matchloadPneumatic.open();
+  wait(0.5, sec); 
+  chassis.drive_distance(18.00);
+  outtake.spin(forward, 11, volt);
+  
   for (int i = 0;i < 3;i++) {
     chassis.DriveL.spin(reverse, 5, volt);
     chassis.DriveR.spin(reverse, 5, volt);
-
-    wait(100, msec);
+    wait(50, msec);
+    intake.spin(reverse, 11, volt);
+    wait(50, msec);
+    intake.spin(forward, 11, volt);
 
     chassis.DriveL.spin(forward, 5, volt);
-    chassis.DriveR.spin(forward, 5
-      , volt);
+    chassis.DriveR.spin(forward, 5, volt);
 
-    wait(400, msec);
+  wait(400, msec);
   }
 
 
-  wait(1, sec);
+  wait(0.2, sec);
     
+  
   // (31, -62) 
   chassis.turn_to_angle(180.00); 
-  chassis.drive_distance(-26.00); 
+  chassis.drive_distance(-8.00); 
   matchloadPneumatic.close(); 
-  outtake.spin(forward, 11, volt); 
-  wait(3, sec); 
-    
-  // (23, -62) 
-  chassis.turn_to_angle(180.00); 
-  chassis.drive_distance(8.00); 
+  wait(0.2, sec);
     
   // (23, -15) 
   chassis.turn_to_angle(270.00); 
-  chassis.drive_distance(47.00); 
+  chassis.drive_distance(17.00); 
     
   // (-7, -15) 
   chassis.turn_to_angle(180.00); 
-  chassis.drive_distance(30.00); 
+  chassis.drive_distance(10.00);
+  
+  chassis.turn_to_angle(-81.25383774);
+  chassis.drive_distance(13.15294644);
+  matchloadPneumatic.open();
+  wait(0.4, sec);
+  chassis.drive_distance(28);
+  matchloadPneumatic.close();
+
+
+  // // (31, -62) 
+  // chassis.turn_to_angle(180.00); 
+  // chassis.drive_distance(-26.00); 
+  // matchloadPneumatic.close(); 
+  // outtake.spin(forward, 11, volt); 
+  // wait(3, sec); 
+    
+  // // (23, -62) 
+  // chassis.turn_to_angle(180.00); 
+  // chassis.drive_distance(8.00); 
+    
+  // // (23, -15) 
+  // chassis.turn_to_angle(270.00); 
+  // chassis.drive_distance(47.00); 
+    
+  // // (-7, -15) 
+  // chassis.turn_to_angle(180.00); 
+  // chassis.drive_distance(30.00); 
 
 //   odom_constants();
 
@@ -518,47 +539,67 @@ void cool_auton() {
   odom_constants();
   chassis.set_coordinates(0, 0, 0);
   // chassis.turn_to_point(-73, 17);
-  chassis.drive_max_voltage = 8;  
+  chassis.drive_max_voltage = 7;  
   chassis.turn_max_voltage = 5;  
   wingPneumatic.open();
 // (18, 2)
   chassis.turn_to_angle(0);
   chassis.drive_distance(17);
 // (29, -1)
-  chassis.turn_to_angle(15.255);
-  chassis.drive_distance(11.402);
-// (40, 8)
-  chassis.turn_to_angle(-36.806);
+chassis.turn_to_angle(-15.255187);
   intake.spin(forward, 11, volt);
-  chassis.drive_distance(21.213);
+  chassis.drive_distance(27.5);
 // (49.5, -1.5)
   chassis.turn_to_angle(-135);
-  chassis.drive_distance(-13.435);
+  chassis.drive_distance(-9.75);
   outtake.spin(forward, 11, volt);
-  wait(1.5, sec);
+  wait(0.75, sec);
 // (16, 32)
   outtake.stop();
   chassis.turn_to_angle(-135);
-  chassis.drive_distance(47.376);
+  chassis.drive_distance(49.25);
 // (5, 32)
   chassis.turn_to_angle(-180);
   matchloadPneumatic.open();
   outtakePneumatic.open();
+  wait(150, msec);
   chassis.drive_distance(11);
+  for (int i = 0;i < 1;i++) {
+    chassis.DriveL.spin(reverse, 5, volt);
+    chassis.DriveR.spin(reverse, 5, volt);
+    wait(50, msec);
+    intake.spin(reverse, 11, volt);
+    outtake.spin(forward, 11, volt);
+    wait(50, msec);
+    outtake.stop();
+    intake.spin(forward, 11, volt);
+
+    chassis.DriveL.spin(forward, 5, volt);
+    chassis.DriveR.spin(forward, 5
+      , volt);
+
+    wait(400, msec);
+  }
 // (31, 32)
+  // chassis.turn_to_angle(-180);
   chassis.turn_to_angle(-180);
   chassis.drive_distance(-26);
+  outtake.spin(forward, 11, volt);
   matchloadPneumatic.close();
-// (23, 32)
-  chassis.turn_to_angle(-180);
-  chassis.drive_distance(8);
-// (35, 21)
-  chassis.turn_to_angle(-137.49);
-  chassis.drive_distance(-16.279);
-// (53, 21)
-  wingPneumatic.close();
-  chassis.turn_to_angle(-180);
-  chassis.drive_distance(-18);
+  wait(1, sec);
+// // (23, 32)
+//   // chassis.turn_to_angle(-180);
+//   chassis.drive_distance(8);
+// // (35, 21)
+//   chassis.turn_to_angle(-137.49);
+//   chassis.drive_distance(-15.779);
+// // (53, 21)
+
+//   chassis.turn_to_angle(-180);
+//   chassis.drive_distance(-6);
+//   wingPneumatic.close();
+//   chassis.drive_max_voltage = 11;  
+//   chassis.drive_distance(-11);
 
 
   // wait(1, sec);
